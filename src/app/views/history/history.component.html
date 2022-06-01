@@ -1,0 +1,26 @@
+<div class="container">
+    <h1> {{title}}</h1>
+    <div class="history">
+        <div class="col-6">
+            <ul class="list-group" *ngFor="let game of userHistory;">
+                <li class="list-group-item item">
+                    <p class="col-5">Date: {{game.date}}</p>
+                    <p class="col-3">Result: {{game.state}}</p>
+                    <button (click)="showGameBoard(game)" type="button" class="btn btn-primary col-3">Display Game</button>
+                </li>
+            </ul>
+        </div>
+        <table *ngIf="showGame" class="col-6">
+            <tr *ngFor="let board_row of game; let x = index">
+                <td *ngFor="let cell of board_row; let y = index" 
+                    [ngStyle]="{'background-color': cell.value === 0 && cell.used === true ? 'green' : cell.value === 1 && cell.used === true ? 'red'  : 'white' }">
+                    {{ cell.status }}
+                    <img *ngIf="cell.value === 1 && cell.used  === true " src="../../assets/images/ship.jpg"
+                        class="card-img-top">
+                </td>
+            </tr>
+        </table>
+    </div>
+   
+
+</div>

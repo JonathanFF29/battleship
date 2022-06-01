@@ -1,0 +1,26 @@
+<div class="container">
+  <h1> {{title}}</h1>
+  <div class="general">
+    <table *ngIf="showBoard" class="col-8">
+      <tr *ngFor="let board_row of board; let x = index">
+        <td *ngFor="let cell of board_row; let y = index" (click)="selectCell(x, y)" [ngStyle]="{'background-color': cell.value === 0 && cell.used === true ? 'green' : cell.value === 1 && cell.used === true ? 'red'  : 'white' }">
+          {{ cell.status }}
+          <img *ngIf="cell.value === 1 && cell.used  === true " src="../../assets/images/ship.jpg"  class="card-img-top" >
+        </td>
+      </tr>
+    </table>
+    <div *ngIf="!showBoard" class="col-8">
+      {{finalMessage}}
+    </div>
+    <div class="card col-4" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Welcome  {{name}}  </h5>
+        <p *ngIf="level === '2' || level === '3'"  class="card-text">You have {{remainigTurns}} turns remaining.</p>
+        <p *ngIf="level === '1'" class="card-text">You have no turn limits</p>
+        <p  class="card-text">you have {{shipPositions}} ship positions left to hit</p>
+        <a (click)="reload( )" class="btn btn-primary">Restart</a>
+      </div>
+    </div>
+  </div>
+
+</div>
