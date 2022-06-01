@@ -32,7 +32,7 @@ General information
 
 In this project we install:
 
-"bootstrap": "^5.1.3",  this is for use visual components 
-"firebase": "^9.8.1",   to connect a non relational database
-"rxjs": "~7.5.0",       to use observables and subscription to them
-@angular-eslint/schematics": "13.2.1", to linting the application
+"bootstrap": "^5.1.3"  this is for use visual components ,
+"firebase": "^9.8.1"   to connect a non relational database,
+"rxjs": "~7.5.0"       to use observables and subscription to them,
+@angular-eslint/schematics": "13.2.1" to linting the application
